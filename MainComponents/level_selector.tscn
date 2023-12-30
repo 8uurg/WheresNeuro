@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c43v0v1whsrt8"]
+[gd_scene load_steps=5 format=3 uid="uid://c43v0v1whsrt8"]
 
 [ext_resource type="Script" path="res://MainComponents/level_selector.gd" id="1_dwpeh"]
 [ext_resource type="StyleBox" uid="uid://bxfm17mv6y0n4" path="res://MainComponents/LevelSelector.tres" id="1_kgcj6"]
+[ext_resource type="StyleBox" uid="uid://bh7g563qcxbgc" path="res://MainComponents/LevelSelectorHover.tres" id="2_kxy15"]
+[ext_resource type="StyleBox" uid="uid://3v8doo0ct2bl" path="res://MainComponents/LevelSelectorPressed.tres" id="3_75ucq"]
 
 [node name="LevelSelector" type="Button"]
 offset_right = 24.0
 offset_bottom = 47.0
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = ExtResource("1_kgcj6")
+theme_override_styles/hover = ExtResource("2_kxy15")
+theme_override_styles/pressed = ExtResource("3_75ucq")
 text = "0"
 script = ExtResource("1_dwpeh")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgdljh6peb5t8"]
+[gd_scene load_steps=7 format=3 uid="uid://cgdljh6peb5t8"]
 
 [ext_resource type="Texture2D" uid="uid://cvtali6leix33" path="res://Assets/backgroundEmpty.png" id="1_m8jch"]
 [ext_resource type="Texture2D" uid="uid://bh05iw7y8ugg8" path="res://Assets/Logo.png" id="2_gy44d"]
@@ -12,6 +12,13 @@ script/source = "extends Button
 
 func _pressed():
 	SceneSwitcher.switch_to_scene(\"res://Menus/LevelSelect.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_bfp0l"]
+script/source = "extends Button
+
+func _pressed():
+	SceneSwitcher.switch_to_scene(\"res://menus/Credits.tscn\")
 "
 
 [sub_resource type="GDScript" id="GDScript_hsndm"]
@@ -64,7 +71,7 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="LevelSelect" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Level Select"
 script = SubResource("GDScript_uhegy")
@@ -73,7 +80,12 @@ script = SubResource("GDScript_uhegy")
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+script = SubResource("GDScript_bfp0l")
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Exit Game"
 script = SubResource("GDScript_hsndm")
