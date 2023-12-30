@@ -8,7 +8,7 @@ func _ready():
 	# in case we have been 'found'.
 	interaction_key = InteractableRegistry.register_to_be_found(hud_icon)
 
-func _input_event(viewport, event, shape_idx):
+func _input_event(_viewport, event, _shape_idx):
 	# If the event indicates we have pressed a mouse button
 	# and it indicates that this is the mouse down event
 	# and it corresponds to the left mouse button event

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://gxd28fj8aidr"]
 
-[ext_resource type="Script" path="res://to_be_found_item.gd" id="1_ueapc"]
-[ext_resource type="Texture2D" uid="uid://cbe20ervxqfcg" path="res://Assets/Check.png" id="2_03qbf"]
+[ext_resource type="Script" path="res://MainComponents/to_be_found_item.gd" id="1_nmtju"]
+[ext_resource type="Texture2D" uid="uid://cbe20ervxqfcg" path="res://Assets/Check.png" id="2_cyxyg"]
 
 [sub_resource type="Animation" id="Animation_vu3m6"]
 resource_name = "Found"
@@ -36,7 +36,7 @@ _data = {
 }
 
 [node name="ToBeFoundItem" type="TextureRect"]
-script = ExtResource("1_ueapc")
+script = ExtResource("1_nmtju")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -55,5 +55,5 @@ offset_left = -16.0
 offset_top = -16.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("2_03qbf")
+texture = ExtResource("2_cyxyg")
 stretch_mode = 2

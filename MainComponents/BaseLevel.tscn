@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd6d6jxbthe1"]
+[gd_scene load_steps=5 format=3 uid="uid://cd6d6jxbthe1"]
 
-[ext_resource type="Script" path="res://PannableCamera.gd" id="1_34i3t"]
+[ext_resource type="Script" path="res://MainComponents/PannableCamera.gd" id="1_34i3t"]
+[ext_resource type="Script" path="res://MainComponents/HUDList.gd" id="2_75s1o"]
 
 [sub_resource type="GDScript" id="GDScript_yk8qe"]
 script/source = "extends Node2D
@@ -45,9 +46,6 @@ func _ready():
 		camera.set_bounds(content_rect.position.y, content_rect.end.x, content_rect.end.y, content_rect.position.x)
 		camera.update_min_zoom()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bftcb"]
@@ -93,8 +91,63 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="LostAndFound" type="HBoxContainer" parent="HUD/Control/ScrollContainer/MarginContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
+script = ExtResource("2_75s1o")
+
+[node name="LevelComplete" type="Panel" parent="HUD"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUD/LevelComplete"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_top = 15.0
+offset_right = 59.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Level Complete"
+
+[node name="MenuButton" type="Button" parent="HUD/LevelComplete"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -46.0
+offset_right = 150.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back to menu"
+
+[node name="NextButton" type="Button" parent="HUD/LevelComplete"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -46.0
+offset_right = -20.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Next"
 
 [node name="Elements" type="Node2D" parent="."]

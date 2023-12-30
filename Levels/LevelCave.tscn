@@ -1,17 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr6ggf2gcxgts"]
+[gd_scene load_steps=5 format=3 uid="uid://dr6ggf2gcxgts"]
 
-[ext_resource type="PackedScene" uid="uid://cd6d6jxbthe1" path="res://BaseLevel.tscn" id="1_6l3y8"]
+[ext_resource type="PackedScene" uid="uid://cd6d6jxbthe1" path="res://MainComponents/BaseLevel.tscn" id="1_6l3y8"]
 [ext_resource type="Texture2D" uid="uid://cx1o7sgcb5k1" path="res://Assets/9e67765c214648eeb7aa8de650ca7cca.jpg" id="2_edooc"]
-[ext_resource type="Script" path="res://HUDList.gd" id="2_gjd7n"]
-[ext_resource type="PackedScene" uid="uid://dpmlfqrumqokf" path="res://interactable.tscn" id="3_uw6iv"]
+[ext_resource type="PackedScene" uid="uid://dpmlfqrumqokf" path="res://MainComponents/interactable.tscn" id="3_uw6iv"]
 [ext_resource type="Texture2D" uid="uid://b7gu8xc7mhrpv" path="res://Assets/tutel.png" id="4_r2yto"]
 
 [node name="LevelCave" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource("1_6l3y8")]
 
-[node name="LostAndFound" parent="Level/HUD/Control/ScrollContainer/MarginContainer" index="0"]
-script = ExtResource("2_gjd7n")
+[node name="LevelComplete" parent="Level/HUD" index="1"]
+anchors_preset = 8
 
 [node name="Background" type="Sprite2D" parent="Level/Elements" index="0"]
 texture = ExtResource("2_edooc")

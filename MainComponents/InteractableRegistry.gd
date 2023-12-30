@@ -9,7 +9,10 @@ var num_found = 0
 var pending_elements = []
 var hud_e
 
-var tbfi = preload("res://to_be_found_item.tscn")
+var tbfi = preload("res://MainComponents/to_be_found_item.tscn")
+
+signal num_found_changed
+signal all_found
 
 # Clear any currently assigned tags.
 func clear():
@@ -50,11 +53,16 @@ func found(key):
 	if was_found.get(key, true): return
 	# Mark as found
 	was_found[key] = true
+	# Update.
+	num_found += 1
+	num_found_changed.emit(num_found)
 	# Fade out the element, as to mark this as found.
-	# TODO: Place this in its own scene and set an attribute instead?
-	var tr = id_map.get(key)
-	# If we don't have a texture. That is probably something that was forgotten...
-	# However, just deal with it by returning immidiately.
-	if tr == null: return
-	tr.found()
+	var hud_elem = id_map.get(key)
+	# If there is no corresponding element, that is probably a bug - deal with it nicely
+	# anyways by ignoring.
+	if hud_elem == null: return
+	# Otherwise, inform our hud element of the ongoing shenanigans.
+	hud_elem.found()
+	if num_found == num_to_be_found:
+		all_found.emit()
 	
