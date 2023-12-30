@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgdljh6peb5t8"]
 
-[ext_resource type="Texture2D" uid="uid://pn585cfxfcew" path="res://backgroundEmpty.png" id="1_m8jch"]
+[ext_resource type="Texture2D" uid="uid://cvtali6leix33" path="res://Assets/backgroundEmpty.png" id="1_m8jch"]
 [ext_resource type="Texture2D" uid="uid://bh05iw7y8ugg8" path="res://Assets/Logo.png" id="2_gy44d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cae3q"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1bdsvfk6ireu"]
 
-[ext_resource type="Texture2D" uid="uid://pn585cfxfcew" path="res://backgroundEmpty.png" id="1_mdvcx"]
+[ext_resource type="Texture2D" uid="uid://cvtali6leix33" path="res://Assets/backgroundEmpty.png" id="1_mdvcx"]
 [ext_resource type="PackedScene" uid="uid://c43v0v1whsrt8" path="res://MainComponents/level_selector.tscn" id="2_ymri4"]
 
 [sub_resource type="GDScript" id="GDScript_y5oig"]
