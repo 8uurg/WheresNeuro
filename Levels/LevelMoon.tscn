@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj80otlpy1lb5"]
+
+[ext_resource type="PackedScene" uid="uid://cd6d6jxbthe1" path="res://BaseLevel.tscn" id="1_wynyh"]
+[ext_resource type="Texture2D" uid="uid://cevghoca7hyv2" path="res://Assets/b05e95192e004189b83b915dc2adc3c5.jpg" id="2_t2jn1"]
+[ext_resource type="PackedScene" uid="uid://dpmlfqrumqokf" path="res://interactable.tscn" id="3_2q503"]
+[ext_resource type="Texture2D" uid="uid://b7gu8xc7mhrpv" path="res://Assets/tutel.png" id="4_s7h74"]
+
+[node name="LevelMoon" type="Node2D"]
+
+[node name="Level" parent="." instance=ExtResource("1_wynyh")]
+
+[node name="Background" type="Sprite2D" parent="Level"]
+texture = ExtResource("2_t2jn1")
+
+[node name="Tutel" parent="Level" instance=ExtResource("3_2q503")]
+modulate = Color(1, 1, 1, 0.203922)
+position = Vector2(302, 164)
+hud_icon = ExtResource("4_s7h74")
+
+[node name="BoundingShape" parent="Level/Tutel" index="0"]
+position = Vector2(0, 0.5)
+
+[node name="Image" parent="Level/Tutel" index="1"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_s7h74")
+
+[editable path="Level/Tutel"]

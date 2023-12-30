@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd6d6jxbthe1"]
+
+[ext_resource type="Script" path="res://PannableCamera.gd" id="1_34i3t"]
+
+[sub_resource type="GDScript" id="GDScript_yk8qe"]
+script/source = "extends Node2D
+
+
+func _ready():
+	# When dealing with a level - set the bounds of the camera as to cover the full extent of the elements.
+	# i.e. so that the background is not visible.
+	var level_content = $Elements
+	var camera = $Camera2D
+	
+	# Compute bounding box recursively.
+	var content_rect = null
+	var to_visit = [level_content]
+	while to_visit.size() > 0:
+		# Schedule children to be visited.
+		var e = to_visit.pop_back()
+		to_visit.append_array(e.get_children())
+		# If we can get a bounding rect...
+		if e.has_method(\"get_rect\"):
+			# Remap the bounding rectangle to global coordinates - accounting for any
+			# intermediate transformations.
+			# As we may become unaligned with the axis - we need to do some min-max
+			# obtain an axis-aligned bounding box (AABB) here.
+			var r = e.get_rect()
+			var g_p = e.to_global(r.position)
+			var g_e = e.to_global(r.end)
+			var gr_l = min(g_p.x, g_e.x)
+			var gr_r = max(g_p.x, g_e.x)
+			var gr_t = min(g_p.y, g_e.y)
+			var gr_b = max(g_p.y, g_e.y)
+			var gr = Rect2(gr_l, gr_t, gr_r - gr_l, gr_b - gr_t)
+			
+			if content_rect == null:
+				content_rect = gr
+			else:
+				content_rect = content_rect.merge(gr)
+	
+	# Set bounds of pannable camera
+	# bound_top, bound_right, bound_bottom, bound_left
+	if content_rect != null:
+		camera.set_bounds(content_rect.position.y, content_rect.end.x, content_rect.end.y, content_rect.position.x)
+		camera.update_min_zoom()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bftcb"]
+bg_color = Color(0.239216, 0.239216, 0.239216, 0.207843)
+
+[node name="Level" type="Node2D"]
+script = SubResource("GDScript_yk8qe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_34i3t")
+max_zoom = 10.0
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 50.0
+offset_top = 10.0
+offset_right = -50.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bftcb")
+follow_focus = true
+vertical_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="LostAndFound" type="HBoxContainer" parent="HUD/Control/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Elements" type="Node2D" parent="."]
