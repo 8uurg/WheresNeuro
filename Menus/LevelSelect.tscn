@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1bdsvfk6ireu"]
+
+[ext_resource type="Texture2D" uid="uid://pn585cfxfcew" path="res://backgroundEmpty.png" id="1_mdvcx"]
+[ext_resource type="PackedScene" uid="uid://c43v0v1whsrt8" path="res://MainComponents/level_selector.tscn" id="2_ymri4"]
+
+[sub_resource type="GDScript" id="GDScript_y5oig"]
+script/source = "extends Button
+
+func _pressed():
+	SceneSwitcher.switch_to_scene(\"res://Menus/MainMenu.tscn\")
+"
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mdvcx")
+region_rect = Rect2(0, 2.68272, 1024, 1013.92)
+patch_margin_top = 500
+axis_stretch_horizontal = 1
+
+[node name="LevelSelect" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.509804)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "Level Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 100.0
+offset_right = -30.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HFlowContainer" type="HFlowContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CaveLevelSelector" parent="ScrollContainer/VBoxContainer/HFlowContainer" instance=ExtResource("2_ymri4")]
+layout_mode = 2
+target_scene = "res://Levels/LevelCave.tscn"
+
+[node name="MoonLevelSelector2" parent="ScrollContainer/VBoxContainer/HFlowContainer" instance=ExtResource("2_ymri4")]
+layout_mode = 2
+text = "1"
+target_scene = "res://Levels/LevelMoon.tscn"
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -60.0
+offset_right = 230.0
+offset_bottom = -30.0
+grow_vertical = 0
+text = "Back to Main Menu"
+script = SubResource("GDScript_y5oig")

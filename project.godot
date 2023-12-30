@@ -11,12 +11,15 @@ config_version=5
 [application]
 
 config/name="WheresNeuro"
+run/main_scene="res://Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="res://Assets/Icon.png"
 
 [autoload]
 
 InteractableRegistry="*res://MainComponents/InteractableRegistry.gd"
+SceneSwitcher="*res://MainComponents/scene_switcher.tscn"
 
 [dotnet]
 

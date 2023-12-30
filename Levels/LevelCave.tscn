@@ -8,9 +8,7 @@
 [node name="LevelCave" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource("1_6l3y8")]
-
-[node name="LevelComplete" parent="Level/HUD" index="1"]
-anchors_preset = 8
+next_level = "res://Levels/LevelMoon.tscn"
 
 [node name="Background" type="Sprite2D" parent="Level/Elements" index="0"]
 texture = ExtResource("2_edooc")
@@ -20,7 +18,7 @@ position = Vector2(-133, 0)
 hud_icon = ExtResource("4_r2yto")
 
 [node name="BoundingShape" parent="Level/Elements/Tutel" index="0"]
-position = Vector2(527.75, 90)
+position = Vector2(528, 90)
 
 [node name="Image" parent="Level/Elements/Tutel" index="1"]
 modulate = Color(1, 1, 1, 0.392157)
