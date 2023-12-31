@@ -60,6 +60,7 @@ func next_level_pressed():
 	
 func _exit_tree():
 	InteractableRegistry.all_found.disconnect(on_level_complete)
+	InteractableRegistry.clear()
 	
 func on_level_complete():
 	$HUD/LevelComplete.visible = true
