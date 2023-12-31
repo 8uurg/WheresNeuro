@@ -83,6 +83,8 @@ text = "BGM"
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+max_value = 1.5
+step = 0.0
 script = ExtResource("4_p1mjd")
 bus_name = "BGM"
 
@@ -95,6 +97,8 @@ text = "SFX"
 [node name="SFXSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+max_value = 1.5
+step = 0.0
 script = ExtResource("4_p1mjd")
 bus_name = "SFX"
 
