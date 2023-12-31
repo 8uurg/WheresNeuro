@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu8hm25drqcjo"]
+
+[ext_resource type="Texture2D" uid="uid://cvtali6leix33" path="res://Assets/backgroundEmpty.png" id="1_76o1h"]
+[ext_resource type="StyleBox" uid="uid://dbpiiacr45js2" path="res://MainComponents/PaneBG.tres" id="2_xqs6j"]
+[ext_resource type="FontVariation" uid="uid://udoydummbwy" path="res://MainComponents/CategoryLabel.tres" id="3_dwy31"]
+[ext_resource type="Script" path="res://Menus/AudioBusSlider.gd" id="4_p1mjd"]
+
+[sub_resource type="GDScript" id="GDScript_y5oig"]
+script/source = "extends Button
+
+func _pressed():
+	SceneSwitcher.switch_to_scene(\"res://Menus/MainMenu.tscn\")
+"
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_76o1h")
+region_rect = Rect2(0, 2.68272, 1024, 1013.92)
+patch_margin_top = 500
+axis_stretch_horizontal = 1
+
+[node name="LevelSelect" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.509804)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 100.0
+offset_right = -200.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_xqs6j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dwy31")
+theme_override_font_sizes/font_size = 18
+text = "Audio"
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="BGM" type="Label" parent="ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.6
+text = "BGM"
+
+[node name="BGMSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("4_p1mjd")
+bus_name = "BGM"
+
+[node name="SFX" type="Label" parent="ScrollContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.6
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+script = ExtResource("4_p1mjd")
+bus_name = "SFX"
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -60.0
+offset_right = 230.0
+offset_bottom = -30.0
+grow_vertical = 0
+text = "Back to Main Menu"
+script = SubResource("GDScript_y5oig")

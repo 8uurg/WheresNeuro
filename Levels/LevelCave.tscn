@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr6ggf2gcxgts"]
+[gd_scene load_steps=12 format=3 uid="uid://dr6ggf2gcxgts"]
 
 [ext_resource type="PackedScene" uid="uid://cd6d6jxbthe1" path="res://MainComponents/BaseLevel.tscn" id="1_6l3y8"]
+[ext_resource type="PackedScene" uid="uid://bpyrqqy7rmqhi" path="res://MainComponents/BGM.tscn" id="1_jeqbe"]
 [ext_resource type="Texture2D" uid="uid://cx1o7sgcb5k1" path="res://Levels/LevelCaveAssets/9e67765c214648eeb7aa8de650ca7cca.jpg" id="2_edooc"]
+[ext_resource type="AudioStream" uid="uid://b7amilo7saspk" path="res://BGM/JDSherbert - Ambiences Music Pack - Frost Mountain Aura.ogg" id="2_fwhru"]
 [ext_resource type="PackedScene" uid="uid://dpmlfqrumqokf" path="res://MainComponents/interactable.tscn" id="3_uw6iv"]
 [ext_resource type="Texture2D" uid="uid://brbu0kj4hdoyk" path="res://Levels/LevelCaveAssets/NeuroPeekIcon.png" id="4_2vlcx"]
 [ext_resource type="Texture2D" uid="uid://b7gu8xc7mhrpv" path="res://Assets/tutel.png" id="4_r2yto"]
@@ -15,6 +17,9 @@ size = Vector2(32.5, 50.25)
 size = Vector2(16, 18)
 
 [node name="LevelCave" type="Node2D"]
+
+[node name="Bgm" parent="." instance=ExtResource("1_jeqbe")]
+stream = ExtResource("2_fwhru")
 
 [node name="Level" parent="." instance=ExtResource("1_6l3y8")]
 next_level = "res://Levels/LevelMoon.tscn"

@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgdljh6peb5t8"]
+[gd_scene load_steps=10 format=3 uid="uid://cgdljh6peb5t8"]
 
+[ext_resource type="PackedScene" uid="uid://bpyrqqy7rmqhi" path="res://MainComponents/BGM.tscn" id="1_evqvf"]
 [ext_resource type="Texture2D" uid="uid://cvtali6leix33" path="res://Assets/backgroundEmpty.png" id="1_m8jch"]
+[ext_resource type="AudioStream" uid="uid://cenbmgnhv3wix" path="res://BGM/JDSherbert - Ambiences Music Pack - Junction Jazz.ogg" id="2_6eqgd"]
 [ext_resource type="Texture2D" uid="uid://bh05iw7y8ugg8" path="res://Assets/Logo.png" id="2_gy44d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cae3q"]
@@ -12,6 +14,13 @@ script/source = "extends Button
 
 func _pressed():
 	SceneSwitcher.switch_to_scene(\"res://Menus/LevelSelect.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_81oio"]
+script/source = "extends Button
+
+func _pressed():
+	SceneSwitcher.switch_to_scene(\"res://menus/Settings.tscn\")
 "
 
 [sub_resource type="GDScript" id="GDScript_bfp0l"]
@@ -35,6 +44,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Bgm" parent="." instance=ExtResource("1_evqvf")]
+stream = ExtResource("2_6eqgd")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -79,6 +91,11 @@ script = SubResource("GDScript_uhegy")
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+script = SubResource("GDScript_81oio")
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2

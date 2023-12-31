@@ -62,14 +62,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_cdote")
 bbcode_enabled = true
-text = "Backgrounds:
-	Menu Screen - Background Elements Redux - Kenney.nl
-	Levels: Cave, Stable Diffusion - Stable Diffusion / AI
+text = "Code & Programmer art: x8uurg
 
-Logo: x8uurg
+Backgrounds:
+	Menu Screen - Kenney.nl - [url=https://kenney.nl/assets/background-elements-redux]Background Elements Redux[/url]
+	Levels: Cave, Moon - AI: Stable Diffusion
 
 SFX:
-	Interface Sounds - Kenney.nl"
+	 Kenney.nl - [url=https://kenney.nl/assets/interface-sounds]Interface Sounds[/url]
+
+BGM:
+	JDScherbert - [url=https://jdsherbert.itch.io/ambiences-music-pack]Ambiances Music Pack[/url]"
 
 [node name="MainMenuButton" type="Button" parent="."]
 layout_mode = 1

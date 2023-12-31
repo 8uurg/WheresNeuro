@@ -68,4 +68,4 @@ func switch_and_fade_out():
 	# Fade out
 	$AnimationPlayer.play("fade_out")
 	print("fading out")
-	
+
