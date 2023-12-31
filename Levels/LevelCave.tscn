@@ -21,7 +21,7 @@ hud_icon = ExtResource("4_r2yto")
 position = Vector2(528, 90)
 
 [node name="Image" parent="Level/Elements/Tutel" index="1"]
-modulate = Color(1, 1, 1, 0.392157)
+modulate = Color(1, 1, 1, 0.133333)
 position = Vector2(528, 89)
 scale = Vector2(0.484375, 0.484375)
 texture = ExtResource("4_r2yto")
