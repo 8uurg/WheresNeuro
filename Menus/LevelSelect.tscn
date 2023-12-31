@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpfdbewwkoydg"]
+[gd_scene load_steps=6 format=3 uid="uid://bpfdbewwkoydg"]
 
 [ext_resource type="Texture2D" uid="uid://cvtali6leix33" path="res://Assets/backgroundEmpty.png" id="1_k4hx8"]
+[ext_resource type="PackedScene" uid="uid://bpyrqqy7rmqhi" path="res://MainComponents/BGM.tscn" id="1_ne534"]
 [ext_resource type="PackedScene" uid="uid://c43v0v1whsrt8" path="res://MainComponents/level_selector.tscn" id="2_pp8f1"]
+[ext_resource type="AudioStream" uid="uid://cenbmgnhv3wix" path="res://BGM/JDSherbert - Ambiences Music Pack - Junction Jazz.ogg" id="2_sr7o7"]
 
 [sub_resource type="GDScript" id="GDScript_y5oig"]
 script/source = "extends Button
@@ -17,6 +19,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Bgm" parent="." instance=ExtResource("1_ne534")]
+stream = ExtResource("2_sr7o7")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 1
