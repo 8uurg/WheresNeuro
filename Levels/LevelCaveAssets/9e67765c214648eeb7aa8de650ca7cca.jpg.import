@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cevghoca7hyv2"
-path="res://.godot/imported/b05e95192e004189b83b915dc2adc3c5.jpg-716cb109f6471428207fd70e769b2122.ctex"
+uid="uid://cx1o7sgcb5k1"
+path="res://.godot/imported/9e67765c214648eeb7aa8de650ca7cca.jpg-e60124941384a6f949cb679d845d8a50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/b05e95192e004189b83b915dc2adc3c5.jpg"
-dest_files=["res://.godot/imported/b05e95192e004189b83b915dc2adc3c5.jpg-716cb109f6471428207fd70e769b2122.ctex"]
+source_file="res://Levels/LevelCaveAssets/9e67765c214648eeb7aa8de650ca7cca.jpg"
+dest_files=["res://.godot/imported/9e67765c214648eeb7aa8de650ca7cca.jpg-e60124941384a6f949cb679d845d8a50.ctex"]
 
 [params]
 

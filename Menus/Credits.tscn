@@ -67,7 +67,9 @@ text = "Backgrounds:
 	Levels: Cave, Stable Diffusion - Stable Diffusion / AI
 
 Logo: x8uurg
-"
+
+SFX:
+	Interface Sounds - Kenney.nl"
 
 [node name="MainMenuButton" type="Button" parent="."]
 layout_mode = 1

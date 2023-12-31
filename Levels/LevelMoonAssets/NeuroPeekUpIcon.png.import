@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx1o7sgcb5k1"
-path="res://.godot/imported/9e67765c214648eeb7aa8de650ca7cca.jpg-86b4965b6da9bab735095d767185ffbd.ctex"
+uid="uid://hq8eq7xna6pc"
+path="res://.godot/imported/NeuroPeekUpIcon.png-e755b63f97307e8eedc5482d9616df3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/9e67765c214648eeb7aa8de650ca7cca.jpg"
-dest_files=["res://.godot/imported/9e67765c214648eeb7aa8de650ca7cca.jpg-86b4965b6da9bab735095d767185ffbd.ctex"]
+source_file="res://Levels/LevelMoonAssets/NeuroPeekUpIcon.png"
+dest_files=["res://.godot/imported/NeuroPeekUpIcon.png-e755b63f97307e8eedc5482d9616df3e.ctex"]
 
 [params]
 

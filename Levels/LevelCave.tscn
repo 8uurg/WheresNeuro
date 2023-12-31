@@ -1,30 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr6ggf2gcxgts"]
+[gd_scene load_steps=10 format=3 uid="uid://dr6ggf2gcxgts"]
 
 [ext_resource type="PackedScene" uid="uid://cd6d6jxbthe1" path="res://MainComponents/BaseLevel.tscn" id="1_6l3y8"]
-[ext_resource type="Texture2D" uid="uid://cx1o7sgcb5k1" path="res://Assets/9e67765c214648eeb7aa8de650ca7cca.jpg" id="2_edooc"]
+[ext_resource type="Texture2D" uid="uid://cx1o7sgcb5k1" path="res://Levels/LevelCaveAssets/9e67765c214648eeb7aa8de650ca7cca.jpg" id="2_edooc"]
 [ext_resource type="PackedScene" uid="uid://dpmlfqrumqokf" path="res://MainComponents/interactable.tscn" id="3_uw6iv"]
+[ext_resource type="Texture2D" uid="uid://brbu0kj4hdoyk" path="res://Levels/LevelCaveAssets/NeuroPeekIcon.png" id="4_2vlcx"]
 [ext_resource type="Texture2D" uid="uid://b7gu8xc7mhrpv" path="res://Assets/tutel.png" id="4_r2yto"]
+[ext_resource type="Texture2D" uid="uid://cdqayomwa5n1o" path="res://Levels/LevelCaveAssets/NeuroPeek.png" id="5_e4eq8"]
+[ext_resource type="Texture2D" uid="uid://b6swmy2p10go6" path="res://Assets/tutelicon.png" id="6_duuvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tto5s"]
+size = Vector2(32.5, 50.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q6xu"]
+size = Vector2(16, 18)
 
 [node name="LevelCave" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource("1_6l3y8")]
 next_level = "res://Levels/LevelMoon.tscn"
 
+[node name="Camera2D" parent="Level" index="0"]
+max_zoom = 3.0
+
 [node name="Background" type="Sprite2D" parent="Level/Elements" index="0"]
+position = Vector2(-1, 13)
 texture = ExtResource("2_edooc")
 
-[node name="Tutel" parent="Level/Elements" index="1" instance=ExtResource("3_uw6iv")]
-position = Vector2(-133, 0)
-hud_icon = ExtResource("4_r2yto")
+[node name="Neuro" parent="Level/Elements" index="1" instance=ExtResource("3_uw6iv")]
+position = Vector2(-87, 181)
+hud_icon = ExtResource("4_2vlcx")
+
+[node name="BoundingShape" parent="Level/Elements/Neuro" index="0"]
+position = Vector2(-4.25, -0.125)
+shape = SubResource("RectangleShape2D_tto5s")
+
+[node name="Image" parent="Level/Elements/Neuro" index="1"]
+texture = ExtResource("5_e4eq8")
+
+[node name="Tutel" parent="Level/Elements" index="2" instance=ExtResource("3_uw6iv")]
+position = Vector2(398, 103)
+hud_icon = ExtResource("6_duuvv")
 
 [node name="BoundingShape" parent="Level/Elements/Tutel" index="0"]
-position = Vector2(528, 90)
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_8q6xu")
 
 [node name="Image" parent="Level/Elements/Tutel" index="1"]
-modulate = Color(1, 1, 1, 0.133333)
-position = Vector2(528, 89)
-scale = Vector2(0.484375, 0.484375)
+self_modulate = Color(1, 1, 1, 0.12549)
+position = Vector2(0.999998, 3)
+scale = Vector2(0.34375, 0.34375)
 texture = ExtResource("4_r2yto")
 
 [editable path="Level"]
+[editable path="Level/Elements/Neuro"]
 [editable path="Level/Elements/Tutel"]

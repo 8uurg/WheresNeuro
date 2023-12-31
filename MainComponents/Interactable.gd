@@ -18,4 +18,7 @@ func _input_event(_viewport, event, _shape_idx):
 
 func interact():
 	# Indicate that we have been found to the registry - note that some form of detection mechanism
-	InteractableRegistry.found(interaction_key)
+	var newly_found = InteractableRegistry.found(interaction_key)
+	
+	if newly_found:
+		$FoundSound.play()

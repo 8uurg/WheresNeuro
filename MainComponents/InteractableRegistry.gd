@@ -50,7 +50,7 @@ func register_to_be_found(texture):
 
 func found(key):
 	# Ignore clicks on elements that were already found.
-	if was_found.get(key, true): return
+	if was_found.get(key, true): return false
 	# Mark as found
 	was_found[key] = true
 	# Update.
@@ -65,4 +65,4 @@ func found(key):
 	hud_elem.found()
 	if num_found == num_to_be_found:
 		all_found.emit()
-	
+	return true
